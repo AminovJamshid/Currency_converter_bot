@@ -20,7 +20,6 @@ foreach ($data as $item) {
     $currencies[strtolower($item['Ccy'])] = $item['Rate'];
 }
 
-
 $update = json_decode(file_get_contents('php://input'));
 var_dump($update);
 if (isset($update)) {
@@ -37,9 +36,7 @@ if (isset($update)) {
         $voice = $message->voice ?? '';
         $reply = $message->reply_markup ?? '';
 
-
         $exp = explode('-', $text);
-
 
         if (count($exp) == 2) {
             $amount = floatval($exp[0]);
@@ -63,7 +60,6 @@ if (isset($update)) {
                     'text' => $responseText
                 ]
             ]);
-
         }
     }
 }
